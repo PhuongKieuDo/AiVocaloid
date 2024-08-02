@@ -1,7 +1,11 @@
 package io.aurumai.ari;
 
+import io.aurumai.Class.ClassMain;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
@@ -11,7 +15,7 @@ import java.io.IOException;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
-public class Main {
+public class Main  {
     public static WebDriver driver;
     public static WebDriverWait wait;
     public static Properties properties = new Properties();
@@ -21,7 +25,27 @@ public class Main {
     String email = "nakoreh603@devncie.com";
     String pass = "Abc12345@";
     String name = " your love";
+    @FindBy(className = "")
+    public static WebElement actiField;
+    @FindBy(className = "")
+    public static WebElement closebuttonField;
+    @FindBy(className = "")
+    public static WebElement createmusicField;
+    @FindBy(id = "")
+    public static WebElement idemailField;
+    @FindBy(id = "")
+    public static WebElement idpassField;
+    public static WebElement submitXPField;
 
+
+    public static void ClassMain(){
+        actiField = driver.findElement((By.className(locater.getProperty("acti"))));
+        closebuttonField = driver.findElement((By.className(locater.getProperty("closebutton"))));
+        createmusicField = driver.findElement(By.className(locater.getProperty("createmusichome")));
+        idemailField = driver.findElement(By.id(locater.getProperty("idemail")));
+        idpassField= driver.findElement(By.id(locater.getProperty("idpass")));
+        submitXPField= driver.findElement(By.xpath(locater.getProperty("submitXP")));
+    }
 
 
     @BeforeTest
